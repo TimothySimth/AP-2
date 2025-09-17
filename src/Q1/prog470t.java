@@ -20,4 +20,13 @@ public class prog470t {
             System.out.println();
         }
     }
+    public static void doThings(int[][] arr){
+        for (int[] r : arr){
+            int temp = 0;
+            for (int c : r) {
+                temp += c;
+            }
+            
+        }
+    }
 }
