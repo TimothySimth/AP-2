@@ -68,6 +68,20 @@ public class prog492h {
                         cnt++;
                     }
                 }
+                //7
+                if (c >= mat[0].length-2) {
+                    String ch = mat[r+1][c+1];
+                    if (ch.equals("*")) {
+                        cnt++;
+                    }
+                }
+                //8
+                if (c >= mat[0].length-2) {
+                    String ch = mat[r+1][c+1];
+                    if (ch.equals("*")) {
+                        cnt++;
+                    }
+                }
             }
         }
 
