@@ -62,22 +62,22 @@ public class prog492h {
                     }
                 }
                 //6
-                if (r <= mat.length-2 && c <= mat[0].length-2) {
-                    String ch = mat[r+1][c+1];
+                if (r <= 2 && c <= mat[0].length-2) {
+                    String ch = mat[r+1][c-1];
                     if (ch.equals("*")) {
                         cnt++;
                     }
                 }
                 //7
-                if (c >= mat[0].length-2) {
-                    String ch = mat[r+1][c+1];
+                if (r >= 2) {
+                    String ch = mat[r][c-1];
                     if (ch.equals("*")) {
                         cnt++;
                     }
                 }
                 //8
-                if (c >= mat[0].length-2) {
-                    String ch = mat[r+1][c+1];
+                if (r >= 2 && c >= 2) {
+                    String ch = mat[r-1][c-1];
                     if (ch.equals("*")) {
                         cnt++;
                     }
