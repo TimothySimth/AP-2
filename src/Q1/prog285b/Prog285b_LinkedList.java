@@ -13,8 +13,18 @@ public class Prog285b_LinkedList {
             list.addBack(new Node(new Com(input.nextInt(),input.nextInt(),input.nextDouble())));
         }
         list.calc();
-
         list.print();
+        System.out.println();
+        list.delete0();
+        list.print();
+        System.out.println();
+        Iterator<Com> things = list.iterator();
+        while (things.hasNext()) {
+            Com cool = things.next();
+            System.out.println(cool);
+        }
+
+
 
     }
 }

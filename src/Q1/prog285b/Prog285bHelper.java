@@ -1,5 +1,7 @@
 package Q1.prog285b;
 
+import java.util.*;
+
 public class Prog285bHelper {
     private Node myroot;
 
@@ -51,5 +53,25 @@ public class Prog285bHelper {
         while (myroot != null && myroot.getCom().getCommission() == 0) {
             myroot = myroot.myNext;
         }
+        Node prev = myroot;
+        Node temp = myroot;
+        while (temp != null) {
+            if (temp.getCom().getCommission() == 0){
+                prev.myNext = temp.myNext;
+            } else {
+                prev = temp;
+            }
+            temp = temp.myNext;
+        }
+    }
+
+    public Iterator<Com> iterator(){
+        ArrayList<Com> stuff = new ArrayList<>();
+        Node temp = myroot;
+        while (temp != null) {
+            stuff.add(temp.getCom());
+            temp = temp.myNext;
+        }
+        return stuff.iterator();
     }
 }
