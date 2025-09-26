@@ -5,7 +5,7 @@ import java.util.*;
 
 public class HistorianHysteria {
     public static void main(String[] args) throws IOException {
-        Scanner sc = new Scanner(new File("C:\\Users\\smith.t7\\IdeaProjects\\kgsahip\\src\\Q1\\AdventofCode\\day1.dat"));
+        Scanner sc = new Scanner(new File("C:\\Users\\smith.t7\\IdeaProjects\\AP-2\\src\\Q1\\AdventofCode\\day1.dat"));
         ArrayList<Integer> arr1 = new ArrayList<>();
         ArrayList<Integer> arr2 = new ArrayList<>();
         while (sc.hasNext()) {
@@ -17,8 +17,13 @@ public class HistorianHysteria {
         Collections.sort(arr1);
         Collections.sort(arr2);
         int total = 0;
-        for (int i =0; i<arr1.size();i++) {
-            total += Math.abs(arr1.get(i)-arr2.get(i));
+        for (int i : arr1) {
+            for (int j : arr2) {
+                if (i == j) {
+                    total+=j;
+                }
+            }
+
         }
         System.out.println(total);
     }
