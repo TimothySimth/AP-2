@@ -7,15 +7,66 @@ import java.util.*;
 
 public class MullItOver {
     public static void main(String[] args) throws IOException {
-        Scanner sc = new Scanner(new File("src/Q1/AdventofCode/day2.dat"));
+        Scanner scanner = new Scanner(new File("src/Q1/AdventofCode/day3.dat"));
         String st = "";
-        while (sc.hasNext()){
-            st += sc.nextLine();
+        while (scanner.hasNextLine()) {
+            st += scanner.nextLine();
         }
-        for (int lcv =0; lcv<st.length(); ++lcv){
-            if (st.substring(lcv,lcv+1).equals("m")) {
-                
+        boolean name = true;
+        System.out.println(st);
+        int result = 0;
+        for (int lcv =0; lcv<st.length()-4; ++lcv){
+            if (lcv >= st.length()) break;
+            if (st.substring(lcv,lcv+1).equals("d")) 
+            if (st.substring(lcv,lcv+1).equals("m") && name) {
+                if(st.substring(lcv+1,lcv+2).equals("u")){
+                    if(st.substring(lcv+2,lcv+3).equals("l")){
+                        if (st.substring(lcv+3, lcv+4).equals("(")) {
+                            int result2 = 0;
+                            String temp2 = st.substring(lcv, lcv+4);
+                            int lcv2 = lcv + 4;
+                            String front = "";
+                            String thing = st.substring(lcv2, lcv2+1);
+                            
+                            
+                            while (!thing.equals(")") && (isInteger(thing) || thing.equals(","))) {
+                                front += thing;
+                                lcv2++;
+                                thing = st.substring(lcv2, lcv2+1);
+                                
+                                
+                            }
+                            if (!st.substring(lcv2, lcv2+1).equals(")")) front = "";
+                            if (front.equals("")) continue;
+                            System.out.println(front);
+                            String[] parts = front.split(",");
+                            int top = Integer.parseInt(parts[0]);
+                            int bottom = Integer.parseInt(parts[1]);
+                            result2 = top * bottom;
+                            result += result2;
+                                                    
+
+
+                            
+                            
+                            //System.out.println(temp2);
+                            //String[] parts = temp2.split(",");
+                            //System.out.println(Arrays.toString(parts));
+                            //int inside = 0;
+                            //int outside = 0;
+                            
+                         
+                    } 
+                } 
             }
         }
+        }
+        System.out.println(result);
+    }
+        
+
+    private static boolean isInteger(String thing) {
+        return thing.equals("0") || thing.equals("1") || thing.equals("2") || thing.equals("3") || thing.equals("4") || thing.equals("5") || thing.equals("6") || thing.equals("7") || thing.equals("8") || thing.equals("9");
     }
 }
+                            
