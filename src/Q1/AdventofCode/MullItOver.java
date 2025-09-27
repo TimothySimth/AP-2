@@ -17,7 +17,8 @@ public class MullItOver {
         int result = 0;
         for (int lcv =0; lcv<st.length()-4; ++lcv){
             if (lcv >= st.length()) break;
-            if (st.substring(lcv,lcv+1).equals("d")) 
+            int jghk = findDont(st, lcv);
+            System.out.println(jghk);
             if (st.substring(lcv,lcv+1).equals("m") && name) {
                 if(st.substring(lcv+1,lcv+2).equals("u")){
                     if(st.substring(lcv+2,lcv+3).equals("l")){
@@ -38,7 +39,6 @@ public class MullItOver {
                             }
                             if (!st.substring(lcv2, lcv2+1).equals(")")) front = "";
                             if (front.equals("")) continue;
-                            System.out.println(front);
                             String[] parts = front.split(",");
                             int top = Integer.parseInt(parts[0]);
                             int bottom = Integer.parseInt(parts[1]);
@@ -47,13 +47,7 @@ public class MullItOver {
                                                     
 
 
-                            
-                            
-                            //System.out.println(temp2);
-                            //String[] parts = temp2.split(",");
-                            //System.out.println(Arrays.toString(parts));
-                            //int inside = 0;
-                            //int outside = 0;
+
                             
                          
                     } 
@@ -67,6 +61,22 @@ public class MullItOver {
 
     private static boolean isInteger(String thing) {
         return thing.equals("0") || thing.equals("1") || thing.equals("2") || thing.equals("3") || thing.equals("4") || thing.equals("5") || thing.equals("6") || thing.equals("7") || thing.equals("8") || thing.equals("9");
+    }
+    private static int findDo(String thing, int start) {
+        int index = -1;
+        for (int i = start; i < thing.length(); i++) {
+            String temp = thing.substring(i, i+4);
+            if (temp.equals("do()")) { index = i; break; }
+        }
+        return index;
+    }
+    private static int findDont(String thing, int start) {
+        int index = -1;
+        for (int i = start; i < thing.length()-7; i++) {
+            String temp = thing.substring(i, i+7);
+            if (temp.equals("don't()")) { index = i; }
+        }
+        return index;
     }
 }
                             
