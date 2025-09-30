@@ -12,7 +12,16 @@ public class BLLHelper {
     }
 
     public void addBack(int value) {
+        if (myroot == null) {
 
+        }
+        else {
+            Node temp = myroot;
+            while (temp.myNext!=null) {
+                temp = temp.myNext;
+            }
+
+        }
     }
 
     public void print() {
